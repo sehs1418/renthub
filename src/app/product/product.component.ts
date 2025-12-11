@@ -2,34 +2,41 @@ import { Component, inject, input, OnInit } from '@angular/core';
 import { Product } from '../shared/models/product';
 import { CurrencyPipe, AsyncPipe } from '@angular/common';
 import { ProductService } from '../core/services/product.service';
-import { CartProduct } from '../shared/models/cart-product';
+import { AnalyticsService } from '../core/services/analytics.service';
 import { Observable } from 'rxjs';
+import { RentalModalComponent } from '../shared/components/rental-modal/rental-modal.component';
 
 @Component({
   selector: 'app-product',
-  imports: [CurrencyPipe, AsyncPipe],
+  imports: [CurrencyPipe, AsyncPipe, RentalModalComponent],
   templateUrl: './product.component.html',
 })
 export class ProductComponent implements OnInit {
   id = input<string>('');
   productService = inject(ProductService);
+  analyticsService = inject(AnalyticsService);
   product$!: Observable<Product | undefined>;
+  isModalOpen = false;
+  currentProduct: Product | null = null;
 
   ngOnInit(): void {
     this.product$ = this.productService.getById(this.id());
+
+    // Track product view
+    this.product$.subscribe(product => {
+      if (product) {
+        this.analyticsService.trackViewProduct(product.id, product.name, product.price);
+      }
+    });
   }
 
-  addToCart(product: Product) {
-    const cartProducts: CartProduct[] =
-      JSON.parse(localStorage.getItem('cart-products') as string) || [];
+  openRentalModal(product: Product) {
+    this.analyticsService.trackRentIntent(product.id, product.name, product.price);
+    this.currentProduct = product;
+    this.isModalOpen = true;
+  }
 
-    const matched = cartProducts.find(({ product: p }) => p.id === product.id);
-
-    if (matched) {
-      matched.quantity++;
-    } else {
-      cartProducts.push({ product, quantity: 1 });
-    }
-    localStorage.setItem('cart-products', JSON.stringify(cartProducts));
+  closeModal() {
+    this.isModalOpen = false;
   }
 }

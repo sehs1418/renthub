@@ -1,0 +1,57 @@
+<div *ngIf="isOpen" class="fixed inset-0 z-50 flex items-center justify-center">
+    <!-- Backdrop -->
+    <div class="fixed inset-0 bg-gray-900 bg-opacity-50 transition-opacity" (click)="closeModal()"></div>
+
+    <!-- Modal -->
+    <div class="relative bg-white rounded-lg shadow-xl max-w-md w-full mx-4 p-6 z-10">
+        <!-- Close button -->
+        <button type="button"
+            class="absolute top-3 right-3 text-gray-400 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
+            (click)="closeModal()">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+            </svg>
+        </button>
+
+        <!-- Content -->
+        <div *ngIf="!showSuccess" class="text-center">
+            <h3 class="mb-5 text-2xl font-bold text-gray-900">Ottima scelta! 🚀</h3>
+            <p class="mb-5 text-gray-500">
+                RentHub sta arrivando nella tua città tra pochissimo! Stiamo finalizzando le assicurazioni per i tuoi
+                noleggi.
+                Lasciaci la mail per ricevere un <strong>buono sconto del 50%</strong> appena apriamo (tra circa 2
+                settimane).
+            </p>
+
+            <form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
+                <div class="mb-4">
+                    <input type="email" formControlName="email"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5"
+                        placeholder="tua-email@esempio.it" [class.border-red-500]="email?.invalid && email?.touched" />
+                    <div *ngIf="email?.invalid && email?.touched" class="mt-1 text-sm text-red-600">
+                        <span *ngIf="email?.errors?.['required']">Email richiesta</span>
+                        <span *ngIf="email?.errors?.['email']">Email non valida</span>
+                    </div>
+                </div>
+
+                <button type="submit" [disabled]="emailForm.invalid"
+                    class="w-full text-white bg-gradient-to-tl from-yellow-500 to-yellow-400 hover:from-yellow-600 hover:to-yellow-500 focus:ring-4 focus:ring-yellow-200 font-bold rounded-lg text-sm px-5 py-2.5 text-center disabled:opacity-50 disabled:cursor-not-allowed">
+                    Avvisami + Sconto
+                </button>
+            </form>
+        </div>
+
+        <!-- Success message -->
+        <div *ngIf="showSuccess" class="text-center py-4">
+            <div class="mb-4">
+                <svg class="mx-auto h-12 w-12 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+            <h3 class="mb-2 text-xl font-bold text-gray-900">Grazie! 🎉</h3>
+            <p class="text-gray-500">Ti contatteremo presto con il tuo sconto esclusivo!</p>
+        </div>
+    </div>
+</div>

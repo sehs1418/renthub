@@ -6,4 +6,6 @@ export interface Product {
   reviews: number;
   price: number;
   previousPrice: number | null;
+  category?: string;
+  sku?: string;
 }

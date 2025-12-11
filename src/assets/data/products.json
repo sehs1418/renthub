@@ -1,0 +1,123 @@
+[
+    {
+        "id": 1,
+        "sku": "TRAP-001",
+        "name": "Trapano Avvitatore Makita Professionale",
+        "description": "Perfetto per lavori domestici. Completo di due batterie e valigetta. Ritiro zona Lambrate.",
+        "unitPrice": 12.00,
+        "imageUrl": "https://images.unsplash.com/photo-1504148455328-c376907d081c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        "active": true,
+        "unitsInStock": 1,
+        "category": "Fai da te"
+    },
+    {
+        "id": 2,
+        "sku": "PROJ-002",
+        "name": "Videoproiettore Epson Full HD",
+        "description": "Ideale per serate cinema o presentazioni. Cavo HDMI incluso. Zona Città Studi.",
+        "unitPrice": 25.00,
+        "imageUrl": "https://www.gigatrade.it/1126144-large_default/epson-eb-fh08-3600-ansi-lumen-3lcd-1080p-1920x1080-bianco.jpg",
+        "active": true,
+        "unitsInStock": 1,
+        "category": "Elettronica"
+    },
+    {
+        "id": 3,
+        "sku": "SCALE-003",
+        "name": "Scala Telescopica in Alluminio (4m)",
+        "description": "Leggera e facile da trasportare. Raggiunge i 4 metri. Ottima per imbiancare.",
+        "unitPrice": 10.00,
+        "imageUrl": "hhttps://www.angoloufficio.it/292029-large_default/scala-telescopica-alluminio-8-8-gradini-squadra.jpg",
+        "active": true,
+        "unitsInStock": 1,
+        "category": "Fai da te"
+    },
+    {
+        "id": 4,
+        "sku": "CAM-004",
+        "name": "Sony Alpha 7III + Obiettivo 24-70mm",
+        "description": "Kit completo per videomaker. Disponibile per weekend. Ritiro a mano zona Piola.",
+        "unitPrice": 45.00,
+        "imageUrl": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        "active": true,
+        "unitsInStock": 1,
+        "category": "Fotografia"
+    },
+    {
+        "id": 5,
+        "sku": "KARCH-005",
+        "name": "Idropulitrice Kärcher K5",
+        "description": "Potente per pulire terrazzi o auto. Facile da usare.",
+        "unitPrice": 18.00,
+        "imageUrl": "https://qvc.scene7.com/is/image/QVC/i2/5/94/503294.001?$itaempdzoom$",
+        "active": true,
+        "unitsInStock": 1,
+        "category": "Giardinaggio"
+    },
+    {
+        "id": 6,
+        "sku": "BOSCH-006",
+        "name": "Levigatrice Orbitale Bosch",
+        "description": "Perfetta per levigare legno e metallo. Include carta abrasiva di ricambio.",
+        "unitPrice": 8.00,
+        "imageUrl": "https://m.media-amazon.com/images/I/61+uGFV0TGL._AC_SY300_SX300_QL70_ML2_.jpg",
+        "active": true,
+        "unitsInStock": 1,
+        "category": "Fai da te"
+    },
+    {
+        "id": 7,
+        "sku": "DEW-007",
+        "name": "Sega Circolare DeWalt",
+        "description": "Tagli precisi e potenti su ogni tipo di legno. Ideale per cantieri e fai-da-te.",
+        "unitPrice": 15.00,
+        "imageUrl": "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        "active": true,
+        "unitsInStock": 1,
+        "category": "Fai da te"
+    },
+    {
+        "id": 8,
+        "sku": "HONDA-008",
+        "name": "Tagliaerba Honda Izy",
+        "description": "Robusto e maneggevole. Perfetto per giardini di medie dimensioni. Motore a scoppio.",
+        "unitPrice": 20.00,
+        "imageUrl": "https://i.ebayimg.com/images/g/WsAAAeSwHt5pIFYU/s-l1600.webp",
+        "active": true,
+        "unitsInStock": 1,
+        "category": "Giardinaggio"
+    },
+    {
+        "id": 9,
+        "sku": "GEN-009",
+        "name": "Generatore di Corrente 3kW",
+        "description": "Affidabile fonte di energia per cantieri o emergenze. Autonomia 8 ore.",
+        "unitPrice": 35.00,
+        "imageUrl": "https://m.media-amazon.com/images/I/51oPCTlr-HL._AC_SX300_SY300_QL70_ML2_.jpg",
+        "active": true,
+        "unitsInStock": 1,
+        "category": "Attrezzatura"
+    },
+    {
+        "id": 10,
+        "sku": "SCH-010",
+        "name": "Trapano a Colonna Scheppach",
+        "description": "Per forature di precisione su legno e metallo. Laser di puntamento integrato.",
+        "unitPrice": 18.00,
+        "imageUrl": "https://m.media-amazon.com/images/I/41buI5HwUkL._SL500_.jpg?format=auto&width=828&height=auto&quality=50",
+        "active": true,
+        "unitsInStock": 1,
+        "category": "Fai da te"
+    },
+    {
+        "id": 11,
+        "sku": "MAK-011",
+        "name": "Smerigliatrice Angolare Makita",
+        "description": "Ideale per tagliare, smerigliare e spazzolare metalli, pietra e cemento.",
+        "unitPrice": 10.00,
+        "imageUrl": "https://images.unsplash.com/photo-1504148455328-c376907d081c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        "active": true,
+        "unitsInStock": 1,
+        "category": "Fai da te"
+    }
+]

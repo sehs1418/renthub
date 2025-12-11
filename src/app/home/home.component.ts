@@ -3,6 +3,7 @@ import { ProductOfferComponent } from '../shared/components/product-offer/produc
 import { Product } from '../shared/models/product';
 import { HomeProductComponent } from './components/home-product/home-product.component';
 import { ProductService } from '../core/services/product.service';
+import { GeolocationService, CityInfo } from '../core/services/geolocation.service';
 import { AsyncPipe } from '@angular/common';
 import { Observable, tap } from 'rxjs';
 import { initFlowbite } from 'flowbite';
@@ -14,10 +15,12 @@ import { initFlowbite } from 'flowbite';
 })
 export class HomeComponent implements OnInit {
   productService = inject(ProductService);
+  geolocationService = inject(GeolocationService);
   cdr = inject(ChangeDetectorRef);
 
   products$: Observable<Product[]> = this.productService.getAll();
   productOffers$: Observable<Product[]>;
+  city$: Observable<CityInfo> = this.geolocationService.city$;
 
   private offersLoaded = false;
   private flowbiteInitialized = false;
@@ -33,7 +36,7 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   private initializeFlowbite(): void {
     if (!this.flowbiteInitialized) {

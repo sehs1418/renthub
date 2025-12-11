@@ -1,23 +1,22 @@
-# Amazon Frontend
+# RentHub - Noleggio P2P
 
-A modern e-commerce frontend application built with Angular 19, inspired by Amazon's user interface. This project provides a comprehensive shopping experience with product browsing, cart management, and checkout functionality.
+RentHub è una moderna piattaforma di noleggio peer-to-peer (P2P) costruita con Angular 19. Questo progetto permette agli utenti di noleggiare attrezzature professionali e strumenti per il fai-da-te in modo semplice e veloce.
 
 ## 🚀 Features
 
-- **Product Catalog**: Browse through a variety of products with detailed information
-- **Shopping Cart**: Add products to your cart and manage quantities
-- **User Authentication**: Login and registration functionality (simulated)
-- **Checkout Process**: Complete purchase flow with address and payment information
-- **Responsive Design**: Optimized for desktop and mobile devices using Tailwind CSS
-- **Payment Success Page**: Confirmation page after successful checkout
+- **Catalogo Prodotti**: Sfoglia un'ampia gamma di attrezzature (Trapani, Proiettori, Giardinaggio, ecc.)
+- **Carrello**: Aggiungi prodotti al carrello e gestisci i periodi di noleggio
+- **Processo di Noleggio**: Flusso completo con selezione date e pagamento (simulato)
+- **Design Responsivo**: Ottimizzato per desktop e mobile con Tailwind CSS e Flowbite
+- **Geolocalizzazione**: Rilevamento automatico della città dell'utente
 
 ## 🛠️ Technology Stack
 
 - **Framework**: Angular 19.x
-- **Styling**: Tailwind CSS 4.x with Flowbite components
-- **State Management**: Angular's built-in services
+- **Styling**: Tailwind CSS 4.x con componenti Flowbite
+- **State Management**: Angular Services & Signals
 - **Routing**: Angular Router
-- **Mock Data**: Simulated product and user data
+- **Analytics**: GA4 Integration (Mock)
 
 ## 📋 Prerequisites
 
@@ -30,8 +29,8 @@ A modern e-commerce frontend application built with Angular 19, inspired by Amaz
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/enzocandido/angular-ecommerce.git
-   cd amazon-frontend
+   git clone https://github.com/TUO_USER/renthub-frontend.git
+   cd renthub-frontend
    ```
 
 2. Install dependencies:
@@ -54,15 +53,13 @@ A modern e-commerce frontend application built with Angular 19, inspired by Amaz
 ```
 src/
 ├── app/
-│   ├── cart/            # Shopping cart functionality
-│   ├── checkout/        # Checkout process components
-│   ├── core/            # Core services and guards
-│   ├── home/            # Homepage components
-│   ├── mock/            # Mock data for development
-│   ├── payment/         # Payment processing and confirmation
-│   ├── product/         # Product details components
-│   └── shared/          # Shared components and utilities
-├── environments/        # Environment configuration
+│   ├── core/            # Core services (Analytics, Geolocation)
+│   ├── home/            # Homepage with Carousel and Grid
+│   ├── product/         # Product details and Rental Modal
+│   ├── shared/          # Navbar, Footer, Models
+│   └── ...
+├── assets/
+│   └── data/            # Mock product data
 ```
 
 ## ⚙️ Available Scripts
@@ -70,17 +67,6 @@ src/
 - **npm start**: Start the development server
 - **npm run build**: Build the project for production
 - **npm test**: Run unit tests
-- **npm run watch**: Build and watch for changes in development mode
-
-## 📦 Deployment
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-This will generate optimized static files in the `dist/` directory that can be deployed to any static hosting service.
 
 ## 🤝 Contributing
 
@@ -96,6 +82,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 🙏 Acknowledgments
 
-- Design inspired by Amazon's user interface
+- **Author**: Hassine
 - Icons provided by [Flowbite](https://flowbite.com/)
-- Product images and descriptions are used for demonstration purposes only
+- Images from [Unsplash](https://unsplash.com/)

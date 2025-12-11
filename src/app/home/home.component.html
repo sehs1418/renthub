@@ -1,97 +1,65 @@
 <main class="p-6">
-  <section class="grid place-content-center lg:grid-cols-2 gap-4 lg:py-32">
-    <article class="flex flex-col max-w-xl mx-auto gap-2">
+  <section class="py-12 lg:py-24 text-center">
+    <article class="flex flex-col max-w-4xl mx-auto gap-4">
+      @if (city$ | async; as city) {
       <h1 class="text-gray-950 font-bold text-4xl sm:text-5xl lg:text-7xl">
-        Shop Computer & Accesories
+        Noleggia Attrezzature a {{ city.name }}
       </h1>
-      <p class="text-lg md:text-xl text-gray-500">
-        Shop laptops, desktops, monitors, tablets, PC gaming, hard drives and
-        storage, accesories and more.
+      <p class="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto">
+        Trapani, videoproiettori, scale e molto altro. Noleggia quello che ti serve, quando ti serve.
+        @if (city.zone) {
+        <span>Zona {{ city.zone }}.</span>
+        }
       </p>
+      }
       <button
-        class="text-gray-700 rounded-md border border-gray-500 px-4 py-2 w-fit focus:ring-4 focus:ring-gray-200"
-      >
-        View More
+        class="text-gray-700 rounded-md border border-gray-500 px-6 py-2 w-fit mx-auto hover:bg-gray-50 focus:ring-4 focus:ring-gray-200">
+        Scopri di più
       </button>
     </article>
-    <article
-      id="controls-carousel"
-      class="relative w-full max-w-screen-sm mx-auto"
-      data-carousel="static"
-    >
+  </section>
+
+  <section class="pb-12">
+    <article id="controls-carousel" class="relative w-full max-w-screen-md mx-auto" data-carousel="static">
       <!-- Carousel wrapper -->
-      <div class="relative h-56 overflow-hidden rounded-lg sm:h-96">
+      <div class="relative h-[28rem] sm:h-[30rem] overflow-visible rounded-lg">
         @for (productOffer of productOffers$ | async; track productOffer.id) {
-        <div
-          class="mt-8 sm:mt-28 lg:mt-24 hidden duration-700 ease-in-out"
-          data-carousel-item
-        >
+        <div class="mt-8 hidden duration-700 ease-in-out" data-carousel-item>
           <app-product-offer [product]="productOffer" />
         </div>
         }
       </div>
-      <!-- Slider controls -->
-      <button
-        type="button"
-        class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-        data-carousel-prev
-      >
-        <span
-          class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-500 group-hover:bg-gray-400 group-focus:ring-4 group-focus:ring-gray-300 group-focus:outline-none"
-        >
-          <svg
-            class="w-4 h-4 text-white rtl:rotate-180"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 6 10"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M5 1 1 5l4 4"
-            />
+
+      <!-- Slider controls (arrows on the right) -->
+      <div class="absolute bottom-4 right-4 z-30 flex gap-2">
+        <button type="button"
+          class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:ring-gray-300 focus:outline-none border border-gray-300 shadow-sm"
+          data-carousel-prev>
+          <svg class="w-4 h-4 text-gray-600 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+            fill="none" viewBox="0 0 6 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M5 1 1 5l4 4" />
           </svg>
           <span class="sr-only">Previous</span>
-        </span>
-      </button>
-      <button
-        type="button"
-        class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-        data-carousel-next
-      >
-        <span
-          class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-500 group-hover:bg-gray-400 group-focus:ring-4 group-focus:ring-gray-300 group-focus:outline-none"
-        >
-          <svg
-            class="w-4 h-4 text-white rtl:rotate-180"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 6 10"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="m1 9 4-4-4-4"
-            />
+        </button>
+        <button type="button"
+          class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 focus:outline-none shadow-sm"
+          data-carousel-next>
+          <svg class="w-4 h-4 text-white rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+            fill="none" viewBox="0 0 6 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="m1 9 4-4-4-4" />
           </svg>
           <span class="sr-only">Next</span>
-        </span>
-      </button>
+        </button>
+      </div>
     </article>
   </section>
   <section class="my-4 space-y-4 w-full">
     <h2 class="text-center font-bold text-gray-950 text-3xl sm:text-4xl">
-      Pick Your Favorite Product
+      Attrezzature Disponibili
     </h2>
-    <article
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
-    >
+    <article class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       @for (product of products$ | async; track product.id) {
       <app-home-product [product]="product" />
       }

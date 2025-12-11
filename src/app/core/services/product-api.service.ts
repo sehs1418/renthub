@@ -5,15 +5,14 @@ import { HttpClient } from '@angular/common/http';
 
 interface ApiProduct {
   id: number;
-  title: string;
-  price: number;
+  sku: string;
+  name: string;
   description: string;
+  unitPrice: number;
+  imageUrl: string;
+  active: boolean;
+  unitsInStock: number;
   category: string;
-  image: string;
-  rating: {
-    rate: number;
-    count: number;
-  };
 }
 
 @Injectable({
@@ -21,7 +20,7 @@ interface ApiProduct {
 })
 export class ProductApiService {
   private http = inject(HttpClient);
-  private apiUrl = 'https://fakestoreapi.com/products';
+  private apiUrl = '/assets/data/products.json';
 
   getProducts(): Observable<Product[]> {
     return this.http
@@ -36,8 +35,9 @@ export class ProductApiService {
   }
 
   getProduct(id: string): Observable<Product | undefined> {
-    return this.http.get<ApiProduct>(`${this.apiUrl}/${id}`).pipe(
-      map((apiProduct) => {
+    return this.http.get<ApiProduct[]>(this.apiUrl).pipe(
+      map((apiProducts) => {
+        const apiProduct = apiProducts.find(p => p.id.toString() === id);
         if (apiProduct) {
           return this.mapApiProductToProduct(apiProduct);
         }
@@ -49,12 +49,14 @@ export class ProductApiService {
   private mapApiProductToProduct(apiProduct: ApiProduct): Product {
     return {
       id: apiProduct.id.toString(),
-      name: apiProduct.title,
+      name: apiProduct.name,
       description: apiProduct.description,
-      urlImg: apiProduct.image,
-      reviews: apiProduct.rating.count,
-      price: apiProduct.price,
-      previousPrice: null, // api
+      urlImg: apiProduct.imageUrl,
+      reviews: Math.floor(Math.random() * 100) + 20, // Mock reviews
+      price: apiProduct.unitPrice,
+      previousPrice: null,
+      category: apiProduct.category,
+      sku: apiProduct.sku,
     };
   }
 }

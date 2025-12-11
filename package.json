@@ -1,6 +1,7 @@
 {
-  "name": "amazon-frontend",
-  "version": "0.0.0",
+  "name": "renthub-frontend",
+  "version": "1.0.0",
+  "author": "Hassine",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
